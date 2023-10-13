@@ -1,13 +1,8 @@
----
-	- name: installing nginx server
-		hosts: all
-		become: yes
-		tasks: 
-		- name: Installing nginx using yum module
-			ansible.builtin.yum:
-				name: nginx
-				state: installed
-		- name: Checking the status
-			ansible.builtin.service:
-				name: nginx
-				state: started
+- name: installing nginxs server
+  hosts: all
+	become: yes
+	tasks:
+	- name: nginx installation
+	  yum:
+		  name: nginx
+			state: installed
