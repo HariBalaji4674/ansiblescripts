@@ -1,6 +1,6 @@
 ---
 - name: Mention the playbook name
-  hosts: all ##server names
+  hosts: localhost ##server names
   become: yes
   tasks: 
   - name: Installing Nginx server
