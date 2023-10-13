@@ -4,8 +4,8 @@
   tasks:
   - name: Installing the server
 	yum:
-	- name: nginx
-	  state: installed
+	  - name: nginx
+	    state: installed
   - name: checking the status
 	service:
 	  - name: nginx
