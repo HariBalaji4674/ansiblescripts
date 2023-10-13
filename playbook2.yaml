@@ -4,4 +4,8 @@
   - name: Pining the server
     yum:
       name: nginx
-      state: started
+      state: removed
+  - name: Chceking server status
+    service:
+      name: nginx
+      state: absent
