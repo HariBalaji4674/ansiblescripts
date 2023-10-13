@@ -10,4 +10,4 @@
   - name: Chceking server status
     service:
       name: nginx
-      state: absent
+      state: started
