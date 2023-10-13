@@ -1,6 +1,7 @@
 ---
 - name: Mention the playbook name
   hosts: all ##server names
+  become: yes
   tasks: 
   - name: Pining the server
     yum:
