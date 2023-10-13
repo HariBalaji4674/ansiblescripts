@@ -1,0 +1,6 @@
+## name of the playbook
+    - name: Mention the playbook name
+      hosts: all ##server names
+      tasks: 
+        - name: Pining the server
+          ping
