@@ -1,12 +1,12 @@
-- name: Installing Nginx server
+- name: installing nginx server
   hosts: all
-  become: yes
-  tasks:
-  - name: Installing the server
-		yum:
-	  - name: nginx
-	    state: installed
-  - name: checking the status
-		service:
-	  - name: nginx
-	    state: started
+	become: yes
+	tasks: 
+	- name: Installing nginx using yum module
+	  yum:
+		  name: nginx
+			state: installed
+	- name: Checking the status
+	  service:
+		  name: nginx
+			state: started
