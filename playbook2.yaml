@@ -3,11 +3,11 @@
   hosts: all ##server names
   become: yes
   tasks: 
-  - name: Pining the server
+  - name: Installing Nginx server
     yum:
       name: nginx
-      state: removed
-  - name: Chceking server status
+      state: installed
+  - name: Checking server status
     service:
       name: nginx
       state: started
