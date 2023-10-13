@@ -1,8 +1,7 @@
-- name: installing nginxs server
-  hosts: all
-	become: yes
-	tasks:
-	- name: nginx installation
-	  yum:
-		  name: nginx
-			state: installed
+- name: Mention the playbook name
+  hosts: all ##server names
+  tasks: 
+  - name: Pining the server
+    yum:
+      name: nginx
+      state: started
