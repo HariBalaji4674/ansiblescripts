@@ -3,10 +3,10 @@
   become: yes
   vars_prompt:
     name: USERNAME
-    PROMPT: Give me user name
+    prompt: Give me user name
     private: false
     name: PASSWORD
-    PROMPT: Give me PASSWORD
+    prompt: Give me PASSWORD
     private: false
   tasks:
   - name: Using Prompt Variables
