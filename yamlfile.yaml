@@ -1,0 +1,23 @@
+### Yaml Format of files
+
+## key : Value pairs
+
+name: peddireddy ### string
+dob: 25.03.65  ## Number
+isselected: true ### Boolean
+address: ### Map Function
+    city: kadapa
+    state: andhra
+    village: chiyyapadu
+    street: direct road
+    pincode: 516355
+course: ### List Funtion
+    - java
+    - python
+    - ruby
+    - shellscript
+    - ansible
+    - terraform
+    - jenkins
+    - git
+java:
