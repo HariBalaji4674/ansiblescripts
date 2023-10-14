@@ -1,0 +1,6 @@
+- name: learning varibles in ansible
+  hosts: localhosts
+  tasks:
+  - name: varibles
+    debug:
+      msg: "I am learning ansible modules"
