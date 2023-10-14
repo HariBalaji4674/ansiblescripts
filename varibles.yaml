@@ -4,7 +4,9 @@
     name: Peddireddy Hari Vardhan Reddy
     course: Ansible
   tasks:
+  - name: I am Writing just print
     debug:
       msg: "I am learning ansible modules"
+  - name: I am Writing local variables
     debug:
       msg: "My Name is {{name}} and I am learning {{course}} modules"
