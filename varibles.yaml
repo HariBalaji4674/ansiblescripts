@@ -1,5 +1,5 @@
 - name: learning varibles in ansible
-  hosts: localhosts
+  hosts: localhost
   tasks:
   - name: varibles
     debug:
