@@ -1,0 +1,9 @@
+- name: file variables demo class
+  hosts: localhost
+  become: yes
+  vars:
+  - variablesfile.yaml
+  tasks: 
+  - name: file level variables declaration
+    debug:
+      msg: "My Name is {{name}}, I am learning {{course}},In the year {{year}},I am Checking {{month}}"
