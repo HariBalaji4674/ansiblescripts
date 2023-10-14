@@ -2,7 +2,7 @@
   hosts: localhost
   become: yes
   vars_files:
-  - variablesfile.yaml
+  - varsfile.yaml
   tasks: 
   - name: file level variables declaration
     debug:
