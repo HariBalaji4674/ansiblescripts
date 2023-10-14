@@ -1,6 +1,12 @@
 - name: learning varibles in ansible
   hosts: localhost
+  vars:
+    name: Peddireddy Hari Vardhan Reddy
+    course: Ansible
   tasks:
   - name: varibles
     debug:
       msg: "I am learning ansible modules"
+    - name: varibles
+    debug:
+      msg: "My Name is {{name}} and I am learning {{course}} modules"
