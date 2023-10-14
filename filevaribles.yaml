@@ -1,7 +1,7 @@
 - name: file variables demo class
   hosts: localhost
   become: yes
-  vars:
+  vars_files:
   - variablesfile.yaml
   tasks: 
   - name: file level variables declaration
