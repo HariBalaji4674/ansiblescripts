@@ -2,10 +2,10 @@
   hosts: localhost
   become: yes
   vars_prompt:
-  - name: USERNAME
+    name: USERNAME
     PROMPT: Give me user name
     private: false
-  - name: PASSWORD
+    name: PASSWORD
     PROMPT: Give me PASSWORD
     private: false
   tasks:
