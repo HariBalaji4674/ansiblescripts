@@ -8,3 +8,7 @@
   - name: PASSWORD
     PROMPT: Give me PASSWORD
     private: false
+  tasks:
+  - name: Using Prompt Variables
+    debug:
+      msg: "I am Giving {{USERNAME}}, I am giving password {{PASSWORD}}"
