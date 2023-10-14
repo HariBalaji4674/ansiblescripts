@@ -1,0 +1,10 @@
+- name: Prompt Variables
+  hosts: localhost
+  become: yes
+  vars_prompt:
+  - name: USERNAME
+    PROMPT: Give me user name
+    private: false
+  - name: PASSWORD
+    PROMPT: Give me PASSWORD
+    private: false
