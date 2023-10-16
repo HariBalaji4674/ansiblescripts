@@ -1,0 +1,15 @@
+- name: Setting Up MongoDB Server
+  hosts: mongodb
+  become: yes
+  tasks:
+  - name: Copy file with owner and permissions
+    copy:
+      src: mongodb.repo
+      dest: /etc/yum.repos.d/mongo.repo
+  - name: Installing mongodb server
+    yum:
+      name: mongodb-org
+      state: installed
+    service:
+      name: mongod
+      state: started
