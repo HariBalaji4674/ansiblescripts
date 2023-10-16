@@ -44,4 +44,6 @@
       src: /tmp/catalogue.zip
       dest: /app
       remote_src: yes
-  
+      
+  - name: Go to folder and excute command
+    command: chdir = /app  npm install
