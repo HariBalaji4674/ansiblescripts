@@ -54,7 +54,6 @@
     copy:
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service
-      remote_src: yes
 
   - name: Demon Reload
     systemd:
@@ -64,9 +63,12 @@
     copy:
       src: mangodb.repo
       dest: /etc/yum.repos.d/mongo.repo
+      remote_src: yes
 
   - name: install mongodb-org-shell
-    command: mongodb-org-shell
+    yum:
+      name: mongodb-org-shell
+      state: installed
 
   - name: Load mongo repo to the catalogue service
     command: mongo --host mongodb.haridevopspractice.online < /app/schema/catalogue.js
