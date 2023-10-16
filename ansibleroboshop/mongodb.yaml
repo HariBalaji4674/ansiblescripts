@@ -14,3 +14,8 @@
     service:
       name: mongod
       state: started
+  - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
+    replace:
+      path: /etc/mongod.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
