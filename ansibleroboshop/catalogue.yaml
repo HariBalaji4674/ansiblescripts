@@ -16,7 +16,7 @@
     ignore_errors: true
 
   - when: out.rc != 0
-  - name: Create user named Roboshop    
+    name: Create user named Roboshop    
     user:
       name: roboshop
     
