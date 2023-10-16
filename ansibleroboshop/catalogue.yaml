@@ -39,7 +39,7 @@
       url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
       dest: /tmp
 
-  - name: Extract foo.tgz into /var/lib/foo
+  - name: Extracting The catalogue zip file
     unarchive:
       src: /tmp/catalogue.zip
       dest: /app
@@ -49,3 +49,29 @@
     command: npm install
     args:
       chdir: /app
+
+  - name: Copying the catalogue service file
+    copy:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
+
+  - name: Demon Reload
+    systemd:
+      daemon_reload: true
+  
+  - name: Copying the catalogue service file
+    copy:
+      src: mangodb.repo
+      dest: /etc/yum.repos.d/mongo.repo
+
+  - name: install mongodb-org-shell
+    command: mongodb-org-shell
+
+  - name: Load mongo repo to the catalogue service
+    command: mongo --host mongodb.haridevopspractice.online < /app/schema/catalogue.js
+  
+  - name: restarted service status 
+    service:
+      name: catalogue
+      state: restarted
+      enabled: true
