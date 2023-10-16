@@ -70,7 +70,7 @@
       state: installed
 
   - name: Load mongo repo to the catalogue service
-    command: mongo --host mongodb.haridevopspractice.online < /app/schema/catalogue.js
+    command: mongo --host 172.31.32.187 < /app/schema/catalogue.js
   
   - name: restarted service status 
     service:
