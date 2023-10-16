@@ -73,7 +73,6 @@
 
   - name: load catalogue data
     ansible.builtin.command: mongo --host mongodb.haridevopspractice.online < /app/schema/catalogue.js
-    mongodb.haridevopspractice.online
 
   - name: restart catalogue
     ansible.builtin.service:
