@@ -54,12 +54,13 @@
     copy:
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service
+      remote_src: yes
 
   - name: Demon Reload
     systemd:
       daemon_reload: true
   
-  - name: Copying the catalogue service file
+  - name: Copying the catalogue service file to yum repos file
     copy:
       src: mangodb.repo
       dest: /etc/yum.repos.d/mongo.repo
