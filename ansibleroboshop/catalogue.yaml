@@ -2,7 +2,7 @@
   hosts: catalogue
   become: yes
   tasks:
-  - name: Running The script or Downkonading the setup
+  - name: Running The script and downloading the setup
     shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
  
   - name: Install Nodejs from the script
@@ -27,4 +27,19 @@
   - name: Print the output of directory 
     debug:
       msg: "output is {{directory}}"
-    
+
+  - when: directory.stat.exists == False
+    name: Create the directory
+    file:
+      path: /app
+      state: directory
+  
+  - name: download the application code
+    get_url:
+      url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+      dest: /tmp
+  - name: Extract foo.tgz into /var/lib/foo
+    unarchive:
+      src: /tmp/catalogue.zip
+      dest: /app
+  
