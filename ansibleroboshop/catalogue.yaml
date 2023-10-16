@@ -61,7 +61,7 @@
   
   - name: Copying the catalogue service file to yum repos file
     copy:
-      src: mangodb.repo
+      src: mongodb.repo
       dest: /etc/yum.repos.d/mongo.repo
       remote_src: yes
 
