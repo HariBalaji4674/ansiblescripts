@@ -8,3 +8,12 @@
     yum:
       name: nodejs 
       state: installed
+  - name: Check roboshop user is available or not  
+    command: id roboshop
+    register: out
+    ignore_errors: true
+  - when: out.rc !=0
+  - name: Create user named Roboshop    
+    user:
+      name: roboshop
+    
