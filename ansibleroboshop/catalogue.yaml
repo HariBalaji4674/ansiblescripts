@@ -1,0 +1,10 @@
+- name: Setting up the catalogue server
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: Running The script or Downkonading the setup
+    shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+  - name: Install Nodejs from the script
+    yum:
+      name: nodejs 
+      state: installed
