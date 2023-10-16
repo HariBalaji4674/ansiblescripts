@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: Running The script and downloading the setup
-    shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+    shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
  
   - name: Install Nodejs from the script
     yum:
