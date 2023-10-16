@@ -15,7 +15,7 @@
     register: out
     ignore_errors: true
 
-  - when: out.rc !=0
+  - when: out.rc != 0
   - name: Create user named Roboshop    
     user:
       name: roboshop
