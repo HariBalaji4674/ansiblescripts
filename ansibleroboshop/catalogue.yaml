@@ -19,4 +19,12 @@
     name: Create user named Roboshop    
     user:
       name: roboshop
+  
+  - name: Check the directory exist or not
+    stat:
+      path: /app
+    register: directory
+  - name: Print the output of directory 
+    debug:
+      msg: "output is {{directory}}"
     
