@@ -24,4 +24,14 @@
     stat:
       path: /app
     register: directory
+  
+  - name: print the status or directory presence
+    debug:
+      msg: directory
+
+  # - when: driectory.stat == false
+  #   name: create a directory /app in the user component
+  #   file:
+  #     path: /app
+  #     state: directory
     
