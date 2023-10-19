@@ -17,7 +17,8 @@
 
   - when: out.rc !=0 
     name: create the roboshopuser
-    user: roboshop
+    user: 
+      name: roboshop
 
   - name: directory is present or not
     stat:
