@@ -6,3 +6,27 @@ web.haridevopspractice.online
 
 [catalogue]
 catalogue.haridevopspractice.online
+
+[cart]
+cart.haridevopspractice.online
+
+[dispath]
+dispatch.haridevopspractice.online
+
+[mysql]
+mysql.haridevopspractice.online
+
+[payment]
+payment.haridevopspractice.online
+
+[rabbitmq]
+rabbitmq.haridevopspractice.online
+
+[redis]
+redis.haridevopspractice.online
+
+[shipping]
+shipping.haridevopspractice.online
+
+[user]
+user.haridevopspractice.online
