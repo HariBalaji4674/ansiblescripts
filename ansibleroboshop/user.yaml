@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: Setting up the nodejs repos with shell command
-    shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+    shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
 
   - name: Installing node js 
     yum:
@@ -16,7 +16,7 @@
     ignore_errors: true
 
   - when: out.rc !=0 
-    name: create the roboshopuser
+    name: create the roboshop user
     user: 
       name: roboshop
 
@@ -27,11 +27,59 @@
   
   - name: print the status or directory presence
     debug:
-      msg: directory
+      msg: "{{directory}}"
 
-  # - when: driectory.stat == false
-  #   name: create a directory /app in the user component
-  #   file:
-  #     path: /app
-  #     state: directory
+  - when: directory.stat.exists == false
+    name: create a directory /app in the user component
+    file:
+      path: /app
+      state: directory
+  
+  - name: Down the user artifact of roboshop
+    get_url:
+      url: https://roboshop-builds.s3.amazonaws.com/user.zip
+      dest: /tmp
+
+  - name: extarct the file with in folder
+    unarchive:
+      src: /tmp/user.zip
+      dest: /app
+      remote_src: yes
+
+  - name: Installing the dependencies
+    command: npm install
+    args:
+      chdir: /app
+  
+  - name: copy user service.
+    copy:
+      src: user.service
+      dest: /etc/systemd/system/user.service
+  
+  - name: Daemon reload the user service
+    systemd:
+      deamon_reload: true
+  
+  
+  - name: copy mongodb service
+    copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+
+  - name: Installing the mongodb org shell
+    yum:
+      name: mongodb-org-shell
+      state: installed
+  
+  - name: load the schema data 
+    command: mongo --host mongodb.haridevopspractice.online < /app/schema/user.js
+
+  - name: start and restart the service
+    service:
+      name: user
+      state: restarted
+      enabled: true
+      
+  
+
     
