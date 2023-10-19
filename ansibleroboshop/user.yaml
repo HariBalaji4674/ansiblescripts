@@ -58,7 +58,7 @@
   
   - name: Daemon reload the user service
     systemd:
-      deamon_reload: true
+      daemon_reload: true
   
   
   - name: copy mongodb service
