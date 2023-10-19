@@ -8,7 +8,7 @@
         state: installed
         disable_gpg_check: true
     - name: Enabling the package streams
-      command: yum module enable redis:remi-6.2
+      command: yum module enable redis:remi-6.2 -y
     - name: Installing redis service
       yum:
         name: redis
@@ -22,5 +22,5 @@
       service:
         name: redis
         state: started
-        enabled: true
+        enabled: yes
         

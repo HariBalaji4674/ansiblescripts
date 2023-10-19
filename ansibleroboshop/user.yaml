@@ -1,0 +1,13 @@
+- name: Installing the user component
+  hosts: user
+  become: yes
+  tasks:
+  - name: Setting up the nodejs repos with shell command
+    shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+  - name: Installing node js 
+    yum:
+      name: nodejs
+      state: installed
+  - name: check the user is available or not
+    command: id roboshop
+    register
