@@ -1,0 +1,25 @@
+- name: Setting Up the redis cache server
+  hosts: redis
+  become: yes
+  tasks:
+    - name: Downloading redis repo rpm package
+      yum:
+        name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+        state: installed
+    - name: Enabling the package streams
+      command: yum module enable redis:remi-6.2
+    - name: Installing redis service
+      yum:
+        name: redis
+        state: installed
+    - name: Replacing the redis.conf 
+      replace:
+        path: /etc/redis.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+    - name: Starting and enabling the service of redis
+      service:
+        name: redis
+        state: started
+        enabled: true
+        
