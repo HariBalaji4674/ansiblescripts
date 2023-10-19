@@ -63,7 +63,7 @@
   
   - name: copy mongodb service
     copy:
-      src: mongo.repo
+      src: mongodb.repo
       dest: /etc/yum.repos.d/mongo.repo
 
   - name: Installing the mongodb org shell
