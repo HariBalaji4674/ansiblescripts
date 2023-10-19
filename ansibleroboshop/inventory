@@ -1,16 +1,16 @@
 [mongodb]
 mongodb.haridevopspractice.online
 
-[web]
-web.haridevopspractice.online
-
 [catalogue]
 catalogue.haridevopspractice.online
+
+[web]
+web.haridevopspractice.online
 
 [cart]
 cart.haridevopspractice.online
 
-[dispath]
+[dispatch]
 dispatch.haridevopspractice.online
 
 [mysql]
